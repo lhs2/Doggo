@@ -6,21 +6,27 @@
 //
 
 import UIKit.UITabBarItem
+import UIKit.UIViewController
 
 class HomeFactory {
     func newInstance() -> HomeViewController {
-        let visualView = HomeView(tabBarItens: tabBarItens())
         let presenter = HomePresenter()
         let router = HomeRouter()
         let interactor = HomeInteractor(presenter: presenter)
-        let viewController = HomeViewController(visualView: visualView, interactor: interactor, router: router)
+        let viewController = HomeViewController(interactor: interactor, router: router)
+        viewController.viewControllers = setupVC().map { UINavigationController(rootViewController: $0) }
         presenter.viewController = viewController
         router.viewController = viewController
         return viewController
     }
     
-    func tabBarItens() -> [UITabBarItem] {
-        return [UITabBarItem(title: "List", image: #imageLiteral(resourceName: "dog"), tag: 0), UITabBarItem(title: "Search", image: #imageLiteral(resourceName: "search"), tag: 1)]
+    private func setupVC()-> [UIViewController] {
+        let doggoListFactory = DoggoListFactory()
+        let doggoListVC = doggoListFactory.newInstance()
+        let doggoTabBarItem = UITabBarItem(title: "List", image: #imageLiteral(resourceName: "dog"), tag: 0)
+        doggoListVC.tabBarItem = doggoTabBarItem
+        return [doggoListVC]
     }
+    
 }
 

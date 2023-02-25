@@ -8,13 +8,8 @@
 import Foundation
 
 protocol HomeRouterProtocol {
-    func navigateToDetails(of user: HomeModel.Dog)
 }
 
 class HomeRouter: HomeRouterProtocol {
-    
     var viewController: HomeViewControllerProtocol?
-    
-    func navigateToDetails(of user: HomeModel.Dog) {
-    }
 }

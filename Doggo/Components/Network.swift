@@ -12,7 +12,7 @@ class Network {
     
     enum Result<Value, Error: Swift.Error> {
         case success(Data)
-        case failure(Error)
+        case failure(Swift.Error)
     }
     
     typealias Handler = (Result<Data, Error>) -> Void
@@ -42,9 +42,9 @@ class Network {
             switch self {
                 
             case .list:
-                return "images/search?size=small&mime_types=jpg&order=ASC&limit=10&page=%@"
+                return "breeds?limit=10&page=%@"
             case .search:
-                return "images/search?breed_ids=%@size=small&mime_types=jpg&order=ASC&limit=10&page=%@"
+                return "breeds/search?q=%@&limit=10&page=%@"
             }
             
         }

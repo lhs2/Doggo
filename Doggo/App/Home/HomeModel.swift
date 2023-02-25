@@ -7,8 +7,5 @@
 
 import Foundation
 
-struct HomeModel {
-    struct Dog {
-        
-    }
+enum HomeModel {
 }
