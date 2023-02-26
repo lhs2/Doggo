@@ -8,8 +8,8 @@
 import Foundation
 import UIKit
 
-protocol DoggoDetailsViewControllerProtocol {
-    func displayDogInfo(for viewModel: DoggoDetaisModel.ViewModel)
+protocol DoggoDetailsViewControllerProtocol: UIViewController {
+    func displayDogInfo(for viewModel: DoggoDetailsModel.ViewModel)
 }
 
 final class DoggoDetailsViewController: UIViewController, DoggoDetailsViewControllerProtocol {
@@ -111,7 +111,7 @@ final class DoggoDetailsViewController: UIViewController, DoggoDetailsViewContro
         navigationController?.navigationBar.isHidden = true
     }
     
-    func displayDogInfo(for viewModel: DoggoDetaisModel.ViewModel) {
+    func displayDogInfo(for viewModel: DoggoDetailsModel.ViewModel) {
         let breedName = viewModel.data.name ?? "No Info"
         let breedCategory = viewModel.data.breed_group ?? "No Info"
         let origin = viewModel.data.origin ?? "No Info"

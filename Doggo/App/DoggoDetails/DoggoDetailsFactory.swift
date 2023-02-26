@@ -8,7 +8,7 @@
 import Foundation
 
 class DoggoDetailsFactory {
-    func newInstance(with data: DoggoDetaisModel.DataInput) -> DoggoDetailsViewController {
+    func newInstance(with data: DoggoDetailsModel.DataInput) -> DoggoDetailsViewController {
         let presenter = DoggoDetailsPresenter()
         let interactor = DoggoDetailsInteractor(presenter: presenter, data: data)
         let viewController = DoggoDetailsViewController(interactor: interactor)

@@ -47,7 +47,17 @@
 		2568917D29AB05F700CDA17A /* DoggoDetailsFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2568917C29AB05F700CDA17A /* DoggoDetailsFactory.swift */; };
 		2568917F29AB060200CDA17A /* DoggoDetailsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2568917E29AB060200CDA17A /* DoggoDetailsInteractor.swift */; };
 		2568918129AB060A00CDA17A /* DoggoDetailsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2568918029AB060A00CDA17A /* DoggoDetailsPresenter.swift */; };
-		2568918329AB0B3D00CDA17A /* DoggoDetaisModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2568918229AB0B3D00CDA17A /* DoggoDetaisModel.swift */; };
+		2568918329AB0B3D00CDA17A /* DoggoDetailsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2568918229AB0B3D00CDA17A /* DoggoDetailsModel.swift */; };
+		2568918829ABB9B400CDA17A /* DoggoDetailsViewControllerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2568918729ABB9B400CDA17A /* DoggoDetailsViewControllerTest.swift */; };
+		2568918B29ABB9D800CDA17A /* DoggoDetailsInteractorSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2568918A29ABB9D800CDA17A /* DoggoDetailsInteractorSpy.swift */; };
+		2568918D29ABB9E800CDA17A /* DoggoDetailsPresenterSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2568918C29ABB9E800CDA17A /* DoggoDetailsPresenterSpy.swift */; };
+		2568918F29ABB9F400CDA17A /* DoggoDetailsViewControllerSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2568918E29ABB9F400CDA17A /* DoggoDetailsViewControllerSpy.swift */; };
+		2568919129ABBA0F00CDA17A /* DoggoDetailsInteractorTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2568919029ABBA0F00CDA17A /* DoggoDetailsInteractorTest.swift */; };
+		2568919329ABBA1E00CDA17A /* DoggoDetailsPresenterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2568919229ABBA1E00CDA17A /* DoggoDetailsPresenterTest.swift */; };
+		2568919629ABBDC300CDA17A /* Dog.json in Resources */ = {isa = PBXBuildFile; fileRef = 2568919529ABBDC300CDA17A /* Dog.json */; };
+		2568919929ABBDE900CDA17A /* XCTestCase+Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2568919829ABBDE900CDA17A /* XCTestCase+Mock.swift */; };
+		2568919D29ABBF6B00CDA17A /* DogList.json in Resources */ = {isa = PBXBuildFile; fileRef = 2568919C29ABBF6B00CDA17A /* DogList.json */; };
+		2568919F29ABC9DB00CDA17A /* DoggoDetailsIntegrationTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2568919E29ABC9DB00CDA17A /* DoggoDetailsIntegrationTest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -112,7 +122,17 @@
 		2568917C29AB05F700CDA17A /* DoggoDetailsFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoggoDetailsFactory.swift; sourceTree = "<group>"; };
 		2568917E29AB060200CDA17A /* DoggoDetailsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoggoDetailsInteractor.swift; sourceTree = "<group>"; };
 		2568918029AB060A00CDA17A /* DoggoDetailsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoggoDetailsPresenter.swift; sourceTree = "<group>"; };
-		2568918229AB0B3D00CDA17A /* DoggoDetaisModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoggoDetaisModel.swift; sourceTree = "<group>"; };
+		2568918229AB0B3D00CDA17A /* DoggoDetailsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoggoDetailsModel.swift; sourceTree = "<group>"; };
+		2568918729ABB9B400CDA17A /* DoggoDetailsViewControllerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoggoDetailsViewControllerTest.swift; sourceTree = "<group>"; };
+		2568918A29ABB9D800CDA17A /* DoggoDetailsInteractorSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoggoDetailsInteractorSpy.swift; sourceTree = "<group>"; };
+		2568918C29ABB9E800CDA17A /* DoggoDetailsPresenterSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoggoDetailsPresenterSpy.swift; sourceTree = "<group>"; };
+		2568918E29ABB9F400CDA17A /* DoggoDetailsViewControllerSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoggoDetailsViewControllerSpy.swift; sourceTree = "<group>"; };
+		2568919029ABBA0F00CDA17A /* DoggoDetailsInteractorTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoggoDetailsInteractorTest.swift; sourceTree = "<group>"; };
+		2568919229ABBA1E00CDA17A /* DoggoDetailsPresenterTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoggoDetailsPresenterTest.swift; sourceTree = "<group>"; };
+		2568919529ABBDC300CDA17A /* Dog.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Dog.json; sourceTree = "<group>"; };
+		2568919829ABBDE900CDA17A /* XCTestCase+Mock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+Mock.swift"; sourceTree = "<group>"; };
+		2568919C29ABBF6B00CDA17A /* DogList.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = DogList.json; sourceTree = "<group>"; };
+		2568919E29ABC9DB00CDA17A /* DoggoDetailsIntegrationTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoggoDetailsIntegrationTest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,6 +184,7 @@
 		2547799E29A915D700443390 /* Doggo */ = {
 			isa = PBXGroup;
 			children = (
+				2568919429ABBD5100CDA17A /* Base */,
 				2568916029AA4CDF00CDA17A /* Extensions */,
 				254779E429A91EBC00443390 /* Components */,
 				254779CF29A9169100443390 /* App */,
@@ -180,6 +201,10 @@
 		254779B529A915DB00443390 /* DoggoTests */ = {
 			isa = PBXGroup;
 			children = (
+				2568919729ABBDCE00CDA17A /* Extensions */,
+				2568918629ABB98F00CDA17A /* DoggoDetails */,
+				2568918529ABB97B00CDA17A /* DoggoSearch */,
+				2568918429ABB97300CDA17A /* DoggoList */,
 				254779B629A915DB00443390 /* DoggoTests.swift */,
 			);
 			path = DoggoTests;
@@ -291,9 +316,62 @@
 				2568917C29AB05F700CDA17A /* DoggoDetailsFactory.swift */,
 				2568917E29AB060200CDA17A /* DoggoDetailsInteractor.swift */,
 				2568918029AB060A00CDA17A /* DoggoDetailsPresenter.swift */,
-				2568918229AB0B3D00CDA17A /* DoggoDetaisModel.swift */,
+				2568918229AB0B3D00CDA17A /* DoggoDetailsModel.swift */,
 			);
 			path = DoggoDetails;
+			sourceTree = "<group>";
+		};
+		2568918429ABB97300CDA17A /* DoggoList */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = DoggoList;
+			sourceTree = "<group>";
+		};
+		2568918529ABB97B00CDA17A /* DoggoSearch */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = DoggoSearch;
+			sourceTree = "<group>";
+		};
+		2568918629ABB98F00CDA17A /* DoggoDetails */ = {
+			isa = PBXGroup;
+			children = (
+				2568918929ABB9C900CDA17A /* Spy */,
+				2568918729ABB9B400CDA17A /* DoggoDetailsViewControllerTest.swift */,
+				2568919E29ABC9DB00CDA17A /* DoggoDetailsIntegrationTest.swift */,
+				2568919029ABBA0F00CDA17A /* DoggoDetailsInteractorTest.swift */,
+				2568919229ABBA1E00CDA17A /* DoggoDetailsPresenterTest.swift */,
+			);
+			path = DoggoDetails;
+			sourceTree = "<group>";
+		};
+		2568918929ABB9C900CDA17A /* Spy */ = {
+			isa = PBXGroup;
+			children = (
+				2568918A29ABB9D800CDA17A /* DoggoDetailsInteractorSpy.swift */,
+				2568918C29ABB9E800CDA17A /* DoggoDetailsPresenterSpy.swift */,
+				2568918E29ABB9F400CDA17A /* DoggoDetailsViewControllerSpy.swift */,
+			);
+			path = Spy;
+			sourceTree = "<group>";
+		};
+		2568919429ABBD5100CDA17A /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				2568919529ABBDC300CDA17A /* Dog.json */,
+				2568919C29ABBF6B00CDA17A /* DogList.json */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		2568919729ABBDCE00CDA17A /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				2568919829ABBDE900CDA17A /* XCTestCase+Mock.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		E890F8A833F7E195B995AEDB /* Pods */ = {
@@ -409,6 +487,8 @@
 			files = (
 				254779AC29A915DB00443390 /* LaunchScreen.storyboard in Resources */,
 				254779A929A915DB00443390 /* Assets.xcassets in Resources */,
+				2568919629ABBDC300CDA17A /* Dog.json in Resources */,
+				2568919D29ABBF6B00CDA17A /* DogList.json in Resources */,
 				254779A729A915D700443390 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -452,7 +532,7 @@
 				254779E829A91EF200443390 /* Constraints.swift in Sources */,
 				254779EF29A94F0800443390 /* DoggoListFactory.swift in Sources */,
 				2568917F29AB060200CDA17A /* DoggoDetailsInteractor.swift in Sources */,
-				2568918329AB0B3D00CDA17A /* DoggoDetaisModel.swift in Sources */,
+				2568918329AB0B3D00CDA17A /* DoggoDetailsModel.swift in Sources */,
 				254779DA29A91A1D00443390 /* HomeRouter.swift in Sources */,
 				2568916929AA82B700CDA17A /* DoggoSearchFactory.swift in Sources */,
 				2568917A29AB05D800CDA17A /* DoggoDetailsViewController.swift in Sources */,
@@ -477,6 +557,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				254779B729A915DB00443390 /* DoggoTests.swift in Sources */,
+				2568918B29ABB9D800CDA17A /* DoggoDetailsInteractorSpy.swift in Sources */,
+				2568919329ABBA1E00CDA17A /* DoggoDetailsPresenterTest.swift in Sources */,
+				2568919129ABBA0F00CDA17A /* DoggoDetailsInteractorTest.swift in Sources */,
+				2568919929ABBDE900CDA17A /* XCTestCase+Mock.swift in Sources */,
+				2568918829ABB9B400CDA17A /* DoggoDetailsViewControllerTest.swift in Sources */,
+				2568919F29ABC9DB00CDA17A /* DoggoDetailsIntegrationTest.swift in Sources */,
+				2568918D29ABB9E800CDA17A /* DoggoDetailsPresenterSpy.swift in Sources */,
+				2568918F29ABB9F400CDA17A /* DoggoDetailsViewControllerSpy.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

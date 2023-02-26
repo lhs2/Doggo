@@ -8,22 +8,22 @@
 import Foundation
 
 protocol DoggoDetailsInteractorProtocol {
-    var dog: DoggoDetaisModel.DataInput { get }
+    var dog: DoggoDetailsModel.DataInput { get }
     
     func presentDogInfo()
 }
 
 class DoggoDetailsInteractor: DoggoDetailsInteractorProtocol {
     let presenter: DoggoDetailsPresenterProtocol
-    var dog: DoggoDetaisModel.DataInput
+    var dog: DoggoDetailsModel.DataInput
     
-    init(presenter: DoggoDetailsPresenterProtocol, data: DoggoDetaisModel.DataInput) {
+    init(presenter: DoggoDetailsPresenterProtocol, data: DoggoDetailsModel.DataInput) {
         self.presenter = presenter
         self.dog = data
     }
     
     func presentDogInfo() {
-        let response = DoggoDetaisModel.Response(data: dog.data)
+        let response = DoggoDetailsModel.Response(data: dog.data)
         presenter.presentDogInfo(with: response)
     }
 }

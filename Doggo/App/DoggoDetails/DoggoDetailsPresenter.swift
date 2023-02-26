@@ -8,14 +8,14 @@
 import Foundation
 
 protocol DoggoDetailsPresenterProtocol {
-    func presentDogInfo(with response: DoggoDetaisModel.Response)
+    func presentDogInfo(with response: DoggoDetailsModel.Response)
 }
 
 class DoggoDetailsPresenter: DoggoDetailsPresenterProtocol {
     var viewController: DoggoDetailsViewControllerProtocol?
     
-    func presentDogInfo(with response: DoggoDetaisModel.Response) {
-        let viewModel = DoggoDetaisModel.ViewModel(data: response.data)
+    func presentDogInfo(with response: DoggoDetailsModel.Response) {
+        let viewModel = DoggoDetailsModel.ViewModel(data: response.data)
         viewController?.displayDogInfo(for: viewModel)
     }
 }

@@ -1,5 +1,5 @@
 //
-//  DoggoDetaisModel.swift
+//  DoggoDetailsModel.swift
 //  Doggo
 //
 //  Created by Luiz Henrique on 26/02/2023.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum DoggoDetaisModel {
+enum DoggoDetailsModel {
     struct DataInput {
         let data: Dog
     }
