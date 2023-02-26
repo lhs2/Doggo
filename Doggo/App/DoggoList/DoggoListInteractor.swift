@@ -24,6 +24,10 @@ class DoggoListInteractor: DoggoListInteractorProtocol {
             if let newDoggoList = apiResponse {
                 let response = DoggoListModel.Response(newDogs: newDoggoList)
                 self?.presenter.presentDoggoList(with: response)
+            } else if !Reachability.shared.isReachable{
+                self?.presenter.presentError(with: .noInternet)
+            } else {
+                self?.presenter.presentError(with: .genericError)
             }
             
         }

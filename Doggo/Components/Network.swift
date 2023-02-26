@@ -79,8 +79,8 @@ class Network {
                 switch response.result {
                 case .success(_):
                     if let data = response.data {
-                        self?.shouldAddCache(path: requestURL.description, data: data)
                         handler(.success(data))
+                        self?.shouldAddCache(path: requestURL.description, data: data)
                     }
                     
                 case .failure(let error):

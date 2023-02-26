@@ -114,8 +114,7 @@ class DoggoListViewController: UIViewController, DoggoListViewControllerProtocol
     
     func displayError(with error: DoggoListModel.ErrorCase) {
         setTimerToRequest(with: error.getDelayTime())
-        showError(message: error.getErrorMessage())
-        
+        showError(message: error.getErrorMessage())   
     }
     
     func setTimerToRequest(with seconds: Double) {
