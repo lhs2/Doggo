@@ -15,7 +15,7 @@ protocol DoggoSearchViewControllerProtocol: UIViewController {
 final class DoggoSearchViewController: UIViewController , DoggoSearchViewControllerProtocol{
     fileprivate var viewModel: DoggoSearchModel.ViewModel = .init(newDogs: [])
     
-    private var searchBar: UISearchBar = {
+    var searchBar: UISearchBar = {
         let searchBar:UISearchBar = UISearchBar()
         searchBar.translatesAutoresizingMaskIntoConstraints = false
         searchBar.searchBarStyle = UISearchBar.Style.prominent

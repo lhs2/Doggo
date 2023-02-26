@@ -16,6 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window = UIWindow(frame: UIScreen.main.bounds)
         let factory = HomeFactory()
         let navigationController = UINavigationController.init(rootViewController: factory.newInstance())
+        Reachability.shared.startNetworkReachabilityObserver()
         window?.rootViewController = navigationController
         window?.makeKeyAndVisible()
         return true

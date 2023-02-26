@@ -8,6 +8,7 @@ target 'Doggo' do
   # Pods for Doggo
   pod 'Alamofire', '~> 5.5'
   pod 'Kingfisher', '~> 7.0'
+  pod 'Cache'
 
   target 'DoggoTests' do
     inherit! :search_paths

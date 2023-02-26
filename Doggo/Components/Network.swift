@@ -75,19 +75,39 @@ class Network {
         
         let encoding: ParameterEncoding = JSONEncoding.default
         manager.request(requestURL, method: endpoint.method, parameters: parameters, encoding: encoding, headers: endpoint.headers)
-            .responseJSON(completionHandler: { response in
+            .responseJSON(completionHandler: { [weak self] response in
                 switch response.result {
                 case .success(_):
                     if let data = response.data {
+                        self?.shouldAddCache(path: requestURL.description, data: data)
                         handler(.success(data))
                     }
                     
                 case .failure(let error):
+                    if !Reachability.shared.isReachable {
+                        guard let data = self?.canGetData(path: requestURL.description) else {
+                            handler(.failure(error))
+                            return
+                        }
+                        handler(.success(data))
+                    }
                     handler(.failure(error))
                     
                 }
             })
         
     }
+    
+    private func shouldAddCache(path: String, data: Data) {
+        StorageManager.shared.set(for: path, data: data)
+    }
+    
+    private func canGetData(path: String)-> Data? {
+        if let data = StorageManager.shared.get(for: path) {
+            return data
+        }
+        return nil
+    }
+    
     
 }
