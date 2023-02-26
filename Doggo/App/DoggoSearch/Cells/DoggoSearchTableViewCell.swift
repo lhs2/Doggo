@@ -46,7 +46,7 @@ final class DoggoSearchTableViewCell: UITableViewCell {
         let label = UILabel()
         label.textAlignment = .left
         label.layer.masksToBounds = true
-        label.textColor = .systemGray
+        label.textColor = .black
         label.numberOfLines = 0
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = .systemFont(ofSize: 13.0)
@@ -56,6 +56,7 @@ final class DoggoSearchTableViewCell: UITableViewCell {
     private let originLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 0
+        label.textColor = .black
         label.sizeToFit()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = .systemFont(ofSize: 13.0)

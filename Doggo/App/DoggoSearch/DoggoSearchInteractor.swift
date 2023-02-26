@@ -10,8 +10,8 @@ protocol DoggoSearchInteractorProtocol {
 }
 
 class DoggoSearchInteractor: DoggoSearchInteractorProtocol {
-    let worker: DoggoSearchWorkerProtocol
-    let presenter: DoggoSearchPresenterProtocol
+    var worker: DoggoSearchWorkerProtocol
+    var presenter: DoggoSearchPresenterProtocol
         
     init(presenter: DoggoSearchPresenterProtocol, worker: DoggoSearchWorkerProtocol){
         self.presenter = presenter
