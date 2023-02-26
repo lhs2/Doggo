@@ -22,7 +22,6 @@ class DoggoListWorker: DoggoListWorkerProtocol {
                     let apiResponse = try JSONDecoder().decode(DoggoListModel.ApiResponse.self, from: data)
                     completion(apiResponse)
                 } catch (_) {
-                    print("Error parse")
                     completion(nil)
                 }
             case .failure(_):

@@ -7,8 +7,18 @@
 
 import Foundation
 // API Constraints
+typealias Text = Constraints
 
 let baseURL = "https://api.thedogapi.com/v1/"
 let API_KEY = "MHsZ52zZffWPFlIs8xkKGOiYQpw66O86"
 
-// TableView message
+struct Constraints {
+    static let coderNotImplemented = "init(coder:) has not been implemented"
+
+    static let optionsMenuTitle = "Launches filter"
+    static let optionsMenuAsc = "Show only sucessfully launches"
+    static let optionsMenuCheckboxLabel = "Change layout to grid?"
+    static let optionsMenuConfirmButton = "Update options"
+    
+}
+

@@ -31,23 +31,45 @@ class DoggoListViewController: UIViewController, DoggoListViewControllerProtocol
         fatalError("init(coder:) has not been implemented")
     }
     
-    fileprivate let collectionView:UICollectionView = {
-        let layout = UICollectionViewFlowLayout()
-        layout.scrollDirection = .vertical
-        layout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
-        layout.minimumLineSpacing = 1
-        let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
+    private lazy var listCVLayout: UICollectionViewFlowLayout = {
+    let collectionFlowLayout = UICollectionViewFlowLayout()
+//    collectionFlowLayout.sectionInset = UIEdgeInsets(top: 0, left: 30, bottom: 0, right: 30)
+        collectionFlowLayout.itemSize = CGSize(width: view.frame.width - 20, height: 70)
+    collectionFlowLayout.minimumInteritemSpacing = 0
+    collectionFlowLayout.minimumLineSpacing = 0
+    collectionFlowLayout.scrollDirection = .vertical
+        return collectionFlowLayout
+    }()
+
+    private lazy var gridCVLayout: UICollectionViewFlowLayout = {
+    let collectionFlowLayout = UICollectionViewFlowLayout()
+    collectionFlowLayout.scrollDirection = .vertical
+//    collectionFlowLayout.sectionInset = UIEdgeInsets(top: 0, left: 30, bottom: 0, right: 30)
+        collectionFlowLayout.itemSize = CGSize(width: (view.frame.width - 20) / 2, height: 130)
+    collectionFlowLayout.minimumInteritemSpacing = 2
+    collectionFlowLayout.minimumLineSpacing = 2
+        return collectionFlowLayout
+    }()
+    
+    private lazy var collectionView:UICollectionView = {
+        let collectionFlowLayout = UICollectionViewFlowLayout()
+        collectionFlowLayout.minimumInteritemSpacing = 0
+        collectionFlowLayout.minimumLineSpacing = 0
+        collectionFlowLayout.scrollDirection = .vertical
+        collectionFlowLayout.itemSize = CGSize(width: view.frame.width - 20, height: 70)
+        let cv = UICollectionView(frame: .zero, collectionViewLayout: collectionFlowLayout)
         cv.translatesAutoresizingMaskIntoConstraints = false
-        cv.register(DoggoListCollectionCell.self, forCellWithReuseIdentifier: DoggoListCollectionCell.identifier)
+        cv.register(DoggoListRowCollectionCell.self, forCellWithReuseIdentifier: DoggoListRowCollectionCell.identifier)
+        cv.register(DoggoListGridCollectionCell.self, forCellWithReuseIdentifier: DoggoListGridCollectionCell.identifier)
         cv.isPagingEnabled = true
         return cv
     }()
 
     func addConstraints() {
         NSLayoutConstraint.activate([
-            collectionView.topAnchor.constraint(equalTo: view.topAnchor),
+            collectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            view.bottomAnchor.constraint(equalTo: collectionView.bottomAnchor),
+            view.safeAreaLayoutGuide.bottomAnchor.constraint(equalTo: collectionView.bottomAnchor),
             view.trailingAnchor.constraint(equalTo: collectionView.trailingAnchor)
         ])
     }
@@ -57,12 +79,16 @@ class DoggoListViewController: UIViewController, DoggoListViewControllerProtocol
         setupCollectionView()
         addConstraints()
         viewModel.isRequestingList = true
+        collectionView.collectionViewLayout.invalidateLayout()
+        collectionView.setCollectionViewLayout(listCVLayout, animated: true)
         interactor?.requestList(with: viewModel.currentPage)
     }
     
     private func setupView() {
         view.backgroundColor = .white
         view.addSubview(collectionView)
+        let optionsMenuBarButton = UIBarButtonItem(image: #imageLiteral(resourceName: "menu") , style: .done, target: self, action: #selector(self.filterTapped))
+        self.navigationItem.setRightBarButtonItems([optionsMenuBarButton], animated: true)
     }
     
     private func setupCollectionView() {
@@ -72,7 +98,16 @@ class DoggoListViewController: UIViewController, DoggoListViewControllerProtocol
     }
     
     func displayList(with viewModel: DoggoListModel.ViewModel) {
-        self.viewModel.newDogs.append(contentsOf: viewModel.newDogs)
+        if !self.viewModel.isAsc {
+            var reversedList = Array(viewModel.newDogs.reversed())
+            reversedList.append(contentsOf: self.viewModel.newDogs)
+            self.viewModel.newDogs = reversedList
+            self.collectionView.scrollToItem(at: IndexPath(row: 0, section: 0),
+                                              at: .top,
+                                        animated: true)
+        } else {
+            self.viewModel.newDogs.append(contentsOf: viewModel.newDogs)
+        }
         setTimerToRequest(with: 2.5)
         collectionView.reloadData()
     }
@@ -95,7 +130,7 @@ class DoggoListViewController: UIViewController, DoggoListViewControllerProtocol
 extension DoggoListViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print("Collection view at row \(collectionView.tag) selected index path \(indexPath)")
-        guard let cell = collectionView.cellForItem(at: indexPath) as? DoggoListCollectionCell else { return }
+        guard let cell = collectionView.cellForItem(at: indexPath) as? DoggoListCollectionCellProtocol else { return }
         if let doggo = cell.data {
             router?.routeToDogDetails(with: doggo)
         }
@@ -111,9 +146,14 @@ extension DoggoListViewController: UICollectionViewDelegate, UICollectionViewDat
     }
     
     internal func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DoggoListCollectionCell.identifier, for: indexPath) as? DoggoListCollectionCell else { return UICollectionViewCell() }
-        cell.data = viewModel.getDog(for: indexPath) // need to change when grid
-        //viewModel.isListMode ? cell.updateConstraint(for: .list) : cell.updateConstraint(for: .grid)
+        var cell: DoggoListCollectionCellProtocol?
+        if viewModel.isGridMode {
+            cell = collectionView.dequeueReusableCell(withReuseIdentifier: DoggoListGridCollectionCell.identifier, for: indexPath) as? DoggoListGridCollectionCell
+        } else {
+            cell = collectionView.dequeueReusableCell(withReuseIdentifier: DoggoListRowCollectionCell.identifier, for: indexPath) as? DoggoListRowCollectionCell
+        }
+        guard let cell = cell else { return UICollectionViewCell() }
+        cell.data = viewModel.getDog(for: indexPath)
         return cell
     }
     
@@ -127,3 +167,34 @@ extension DoggoListViewController: UICollectionViewDelegate, UICollectionViewDat
     
 }
 
+
+extension DoggoListViewController: OptionsMenuViewControllerLogic {
+    @objc private func filterTapped() {
+        var popUpWindow: OptionsMenuViewController!
+        popUpWindow = OptionsMenuViewController(isAsc: viewModel.isAsc, isGrid: viewModel.isGridMode)
+        popUpWindow.delegate = self
+        self.present(popUpWindow, animated: true, completion: nil)
+    }
+    
+    func filter(isAsc: Bool, isGrid: Bool) {
+        var needUpdateView = false
+        if isAsc != viewModel.isAsc {
+            viewModel.isAsc = isAsc
+            needUpdateView = true
+            viewModel.newDogs = viewModel.newDogs.sorted(by: {
+                isAsc ? $1.id > $0.id : $1.id < $0.id
+            })
+        }
+        if isGrid != viewModel.isGridMode {
+            viewModel.isGridMode = isGrid
+            collectionView.collectionViewLayout.invalidateLayout()
+            collectionView.setCollectionViewLayout(isGrid ? gridCVLayout : listCVLayout, animated: false)
+            needUpdateView = true
+        }
+        if needUpdateView {
+            collectionView.reloadData()
+        }
+    }
+    
+    
+}

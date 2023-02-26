@@ -22,7 +22,6 @@ class DoggoSearchWorker: DoggoSearchWorkerProtocol {
                     let apiResponse = try JSONDecoder().decode(DoggoSearchModel.ApiResponse.self, from: data)
                     completion(apiResponse)
                 } catch (_) {
-                    print("Error parse")
                     completion(nil)
                 }
             case .failure(_):

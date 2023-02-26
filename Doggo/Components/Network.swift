@@ -42,7 +42,7 @@ class Network {
             switch self {
                 
             case .list:
-                return "breeds?limit=10&page=%@"
+                return "breeds?limit=12&page=%@"
             case .search:
                 return "breeds/search?q=%@&limit=50&page=%@"
             }

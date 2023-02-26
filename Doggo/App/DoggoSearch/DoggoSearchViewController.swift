@@ -51,6 +51,12 @@ final class DoggoSearchViewController: UIViewController , DoggoSearchViewControl
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        navigationController?.navigationBar.isHidden = true
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.navigationBar.isHidden = false
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -89,7 +95,6 @@ final class DoggoSearchViewController: UIViewController , DoggoSearchViewControl
     }
     
     func setupView() {
-        navigationController?.navigationBar.isHidden = true
         view.backgroundColor = .white
         view.addSubview(searchBar)
         view.addSubview(tableView)

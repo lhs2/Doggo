@@ -7,6 +7,7 @@
 
 protocol DoggoListInteractorProtocol {
     func requestList(with page: Int)
+    
 }
 
 class DoggoListInteractor: DoggoListInteractorProtocol {

@@ -57,11 +57,11 @@ enum DoggoSearchModel {
             case .initialState:
                 return "Use the Search bar to search for a dog!"
             case .parseError:
-                return "🚫 \nThere was an error with your request. Please, try again later."
+                return "🚫 \nThere was an error with your request. \nPlease, try again later."
             case .noInternet:
-                return "🚫 \nThere was an error with your request. Please, try again later."
+                return "🚫 \nThere was an error with your request. \nPlease, try again later."
             case .noValues:
-                return "There isn't any values for this search. Please, search for other dogs. 🐶"
+                return "There isn't any values for this search. \nPlease, search for other dogs. 🐶"
             }
         }
     }

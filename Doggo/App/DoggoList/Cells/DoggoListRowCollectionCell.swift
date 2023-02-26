@@ -1,5 +1,5 @@
 //
-//  DoggoListCollectionCell.swift
+//  DoggoListRowCollectionCell.swift
 //  Doggo
 //
 //  Created by Luiz Henrique on 24/02/2023.
@@ -8,13 +8,8 @@
 import UIKit
 import Kingfisher
 
-enum CellMode {
-    case list
-    case grid
-}
-
-class DoggoListCollectionCell: UICollectionViewCell {
-    static let identifier = "DoggoListCollectionCell"
+class DoggoListRowCollectionCell: UICollectionViewCell, DoggoListCollectionCellProtocol {
+    static let identifier = "DoggoListRowCollectionCell"
     
     var data: DoggoListModel.Dog? {
         didSet {
@@ -45,27 +40,20 @@ class DoggoListCollectionCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: .zero)
         setupView()
-
+        updateConstraint()
     }
     
     func setupView() {
         contentView.addSubview(imageView)
         contentView.addSubview(nameLabel)
-        updateConstraint(for: .list)
+        
     }
     
-    func updateConstraint(for mode: CellMode) {
-//        imageView.constraints.removeAll()
-//        nameLabel.constraints.removeAll()
-        mode == .list ? updateConstraintsForList() : updateConstraintsForGrid()
-    }
-    
-    private func updateConstraintsForList() {
+    private func updateConstraint() {
         
         NSLayoutConstraint.activate([
-            imageView.topAnchor.constraint(equalTo: self.topAnchor, constant: 10),
+            imageView.centerYAnchor.constraint(equalTo: centerYAnchor),
             imageView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 10),
-            bottomAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 10),
             imageView.widthAnchor.constraint(equalToConstant: 50),
             imageView.heightAnchor.constraint(equalToConstant: 50),
             
@@ -75,22 +63,6 @@ class DoggoListCollectionCell: UICollectionViewCell {
 
         ])
     }
-    
-    private func updateConstraintsForGrid() {
-        NSLayoutConstraint.activate([
-            imageView.topAnchor.constraint(equalTo: self.topAnchor, constant: 8),
-            imageView.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            //imageView.widthAnchor.constraint(equalToConstant: 50),
-            //imageView.heightAnchor.constraint(equalToConstant: 50),
-            
-            nameLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 8),
-            nameLabel.leadingAnchor.constraint(equalTo: self.trailingAnchor, constant: 8),
-            self.trailingAnchor.constraint(equalTo: nameLabel.trailingAnchor, constant: 8),
-        ])
-        
-        
-    }
-    
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")

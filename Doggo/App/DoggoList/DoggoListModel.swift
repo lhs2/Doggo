@@ -15,7 +15,7 @@ enum DoggoListModel {
     typealias ApiResponse = [Dog]
     
     struct Dog: Codable {
-        let id: Int?
+        let id: Int
         let name: String?
         let breed_group: String?
         let temperament: String?
@@ -33,8 +33,9 @@ enum DoggoListModel {
     }
     
     struct ViewModel {
-        var isListMode: Bool = true
+        var isGridMode: Bool = false
         var isRequestingList = false
+        var isAsc = true
         var currentPage: Int = 1
         var newDogs: [Dog]
         
