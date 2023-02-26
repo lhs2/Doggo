@@ -44,7 +44,7 @@ class Network {
             case .list:
                 return "breeds?limit=10&page=%@"
             case .search:
-                return "breeds/search?q=%@&limit=25&page=%@"
+                return "breeds/search?q=%@&limit=50&page=%@"
             }
             
         }

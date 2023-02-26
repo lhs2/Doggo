@@ -44,10 +44,30 @@ enum DoggoListModel {
     }
     
     enum ErrorCase {
+        case noValue
         case noInternet
+        case genericError
         
         func getErrorMessage()-> String {
-            return ""
+            switch self {
+            case .noValue:
+                return "There isn't no more values to show."
+            case .genericError:
+                return "🚫 \nThere was an error with your request. Please, try again later."
+            case .noInternet:
+                return "🚫 \nThere was an error with your request. Please, try again later."
+            }
+        }
+        
+        func getDelayTime() -> Double {
+            switch self {
+            case .noValue:
+                return 300.0
+            case .noInternet:
+                return 60.0
+            case .genericError:
+                return 30.0
+            }
         }
     }
 }

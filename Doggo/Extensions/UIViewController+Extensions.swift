@@ -9,7 +9,7 @@ import UIKit
 
 extension UIViewController {
     struct Constants {
-        static let loadingErrorTitle = "Loading Error"
+        static let loadingErrorTitle = "Error"
         static let errorMessage = "There was a problem loading the feed; please check your connection and try again."
         static let okButtonTitle = "OK"
     }

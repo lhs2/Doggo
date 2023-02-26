@@ -73,12 +73,22 @@ class DoggoListViewController: UIViewController, DoggoListViewControllerProtocol
     
     func displayList(with viewModel: DoggoListModel.ViewModel) {
         self.viewModel.newDogs.append(contentsOf: viewModel.newDogs)
-        self.viewModel.isRequestingList = false
+        setTimerToRequest(with: 2.5)
         collectionView.reloadData()
     }
     
     func displayError(with error: DoggoListModel.ErrorCase) {
-        self.viewModel.isRequestingList = false
+        setTimerToRequest(with: error.getDelayTime())
+        showError(message: error.getErrorMessage())
+        
+    }
+    
+    func setTimerToRequest(with seconds: Double) {
+        DispatchQueue.main.async {
+            Timer.scheduledTimer(withTimeInterval: seconds, repeats: false) { [weak self] _ in
+                self?.viewModel.isRequestingList = false
+            }
+        }
     }
 }
 
@@ -105,6 +115,14 @@ extension DoggoListViewController: UICollectionViewDelegate, UICollectionViewDat
         cell.data = viewModel.getDog(for: indexPath) // need to change when grid
         //viewModel.isListMode ? cell.updateConstraint(for: .list) : cell.updateConstraint(for: .grid)
         return cell
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if(collectionView.contentOffset.y >= (collectionView.contentSize.height - collectionView.bounds.size.height)) && !viewModel.isRequestingList {
+            viewModel.currentPage += 1
+            viewModel.isRequestingList = true
+            interactor?.requestList(with: viewModel.currentPage)
+       }
     }
     
 }
