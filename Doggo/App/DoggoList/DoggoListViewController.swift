@@ -25,8 +25,6 @@ class DoggoListViewController: UIViewController, DoggoListViewControllerProtocol
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        viewModel.isRequestingList = true
-        interactor?.requestList(with: viewModel.currentPage)
     }
     
     required init?(coder: NSCoder) {
@@ -58,10 +56,11 @@ class DoggoListViewController: UIViewController, DoggoListViewControllerProtocol
         setupView()
         setupCollectionView()
         addConstraints()
+        viewModel.isRequestingList = true
+        interactor?.requestList(with: viewModel.currentPage)
     }
     
     private func setupView() {
-        title = "Doggo List"
         view.backgroundColor = .white
         view.addSubview(collectionView)
     }

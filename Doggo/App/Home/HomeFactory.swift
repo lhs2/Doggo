@@ -23,9 +23,14 @@ class HomeFactory {
     private func setupVC()-> [UIViewController] {
         let doggoListFactory = DoggoListFactory()
         let doggoListVC = doggoListFactory.newInstance()
-        let doggoTabBarItem = UITabBarItem(title: "List", image: #imageLiteral(resourceName: "dog"), tag: 0)
-        doggoListVC.tabBarItem = doggoTabBarItem
-        return [doggoListVC]
+        let doggoListTabBarItem = UITabBarItem(title: "List", image: #imageLiteral(resourceName: "dog"), tag: 0)
+        doggoListVC.tabBarItem = doggoListTabBarItem
+        
+        let doggoSearchFactory = DoggoSearchFactory()
+        let doggoSearchVC = doggoSearchFactory.newInstance()
+        let doggoSearchTabBarItem = UITabBarItem(title: "Search", image: #imageLiteral(resourceName: "search"), tag: 1)
+        doggoSearchVC.tabBarItem = doggoSearchTabBarItem
+        return [doggoListVC, doggoSearchVC]
     }
     
 }

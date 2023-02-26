@@ -32,6 +32,17 @@
 		254779FC29A95B1700443390 /* DoggoListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 254779FB29A95B1700443390 /* DoggoListPresenter.swift */; };
 		254779FE29A95B2300443390 /* DoggoListWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 254779FD29A95B2300443390 /* DoggoListWorker.swift */; };
 		25477A0029A9715A00443390 /* DoggoListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 254779FF29A9715A00443390 /* DoggoListRouter.swift */; };
+		2568916329AA827900CDA17A /* DoggoSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2568916229AA827900CDA17A /* DoggoSearchViewController.swift */; };
+		2568916529AA82A200CDA17A /* DoggoSearchInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2568916429AA82A200CDA17A /* DoggoSearchInteractor.swift */; };
+		2568916729AA82A900CDA17A /* DoggoSearchPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2568916629AA82A900CDA17A /* DoggoSearchPresenter.swift */; };
+		2568916929AA82B700CDA17A /* DoggoSearchFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2568916829AA82B700CDA17A /* DoggoSearchFactory.swift */; };
+		2568916B29AA82C000CDA17A /* DoggoSearchWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2568916A29AA82C000CDA17A /* DoggoSearchWorker.swift */; };
+		2568916D29AA84F600CDA17A /* UITableView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2568916C29AA84F500CDA17A /* UITableView+Extensions.swift */; };
+		2568916F29AA86FC00CDA17A /* DoggoSearchModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2568916E29AA86FC00CDA17A /* DoggoSearchModels.swift */; };
+		2568917129AA90CB00CDA17A /* DoggoSearchRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2568917029AA90CB00CDA17A /* DoggoSearchRouter.swift */; };
+		2568917429AAAE3800CDA17A /* DoggoSearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2568917329AAAE3800CDA17A /* DoggoSearchTableViewCell.swift */; };
+		2568917629AAB06B00CDA17A /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2568917529AAB06B00CDA17A /* String+Extensions.swift */; };
+		2568917829AAB8EE00CDA17A /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2568917729AAB8EE00CDA17A /* UIViewController+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +92,17 @@
 		254779FB29A95B1700443390 /* DoggoListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoggoListPresenter.swift; sourceTree = "<group>"; };
 		254779FD29A95B2300443390 /* DoggoListWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoggoListWorker.swift; sourceTree = "<group>"; };
 		254779FF29A9715A00443390 /* DoggoListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoggoListRouter.swift; sourceTree = "<group>"; };
+		2568916229AA827900CDA17A /* DoggoSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoggoSearchViewController.swift; sourceTree = "<group>"; };
+		2568916429AA82A200CDA17A /* DoggoSearchInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoggoSearchInteractor.swift; sourceTree = "<group>"; };
+		2568916629AA82A900CDA17A /* DoggoSearchPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoggoSearchPresenter.swift; sourceTree = "<group>"; };
+		2568916829AA82B700CDA17A /* DoggoSearchFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoggoSearchFactory.swift; sourceTree = "<group>"; };
+		2568916A29AA82C000CDA17A /* DoggoSearchWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoggoSearchWorker.swift; sourceTree = "<group>"; };
+		2568916C29AA84F500CDA17A /* UITableView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Extensions.swift"; sourceTree = "<group>"; };
+		2568916E29AA86FC00CDA17A /* DoggoSearchModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoggoSearchModels.swift; sourceTree = "<group>"; };
+		2568917029AA90CB00CDA17A /* DoggoSearchRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoggoSearchRouter.swift; sourceTree = "<group>"; };
+		2568917329AAAE3800CDA17A /* DoggoSearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoggoSearchTableViewCell.swift; sourceTree = "<group>"; };
+		2568917529AAB06B00CDA17A /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
+		2568917729AAB8EE00CDA17A /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,6 +187,7 @@
 		254779CF29A9169100443390 /* App */ = {
 			isa = PBXGroup;
 			children = (
+				2568916129AA81B400CDA17A /* DoggoSearch */,
 				254779ED29A94EED00443390 /* DoggoList */,
 				254779D029A9169E00443390 /* Home */,
 			);
@@ -220,8 +243,34 @@
 		2568916029AA4CDF00CDA17A /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				2568916C29AA84F500CDA17A /* UITableView+Extensions.swift */,
+				2568917529AAB06B00CDA17A /* String+Extensions.swift */,
+				2568917729AAB8EE00CDA17A /* UIViewController+Extensions.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		2568916129AA81B400CDA17A /* DoggoSearch */ = {
+			isa = PBXGroup;
+			children = (
+				2568917229AAAE1600CDA17A /* Cells */,
+				2568916229AA827900CDA17A /* DoggoSearchViewController.swift */,
+				2568916429AA82A200CDA17A /* DoggoSearchInteractor.swift */,
+				2568916629AA82A900CDA17A /* DoggoSearchPresenter.swift */,
+				2568916829AA82B700CDA17A /* DoggoSearchFactory.swift */,
+				2568916A29AA82C000CDA17A /* DoggoSearchWorker.swift */,
+				2568916E29AA86FC00CDA17A /* DoggoSearchModels.swift */,
+				2568917029AA90CB00CDA17A /* DoggoSearchRouter.swift */,
+			);
+			path = DoggoSearch;
+			sourceTree = "<group>";
+		};
+		2568917229AAAE1600CDA17A /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				2568917329AAAE3800CDA17A /* DoggoSearchTableViewCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		E890F8A833F7E195B995AEDB /* Pods */ = {
@@ -364,19 +413,30 @@
 			files = (
 				254779F629A9501D00443390 /* DoggoListCollectionCell.swift in Sources */,
 				254779E629A91ECE00443390 /* Network.swift in Sources */,
+				2568916B29AA82C000CDA17A /* DoggoSearchWorker.swift in Sources */,
 				254779DE29A91A4400443390 /* HomeView.swift in Sources */,
+				2568916329AA827900CDA17A /* DoggoSearchViewController.swift in Sources */,
 				254779A429A915D700443390 /* ViewController.swift in Sources */,
 				25477A0029A9715A00443390 /* DoggoListRouter.swift in Sources */,
 				254779FE29A95B2300443390 /* DoggoListWorker.swift in Sources */,
+				2568916729AA82A900CDA17A /* DoggoSearchPresenter.swift in Sources */,
+				2568916529AA82A200CDA17A /* DoggoSearchInteractor.swift in Sources */,
+				2568916F29AA86FC00CDA17A /* DoggoSearchModels.swift in Sources */,
 				254779A029A915D700443390 /* AppDelegate.swift in Sources */,
+				2568917129AA90CB00CDA17A /* DoggoSearchRouter.swift in Sources */,
 				254779E829A91EF200443390 /* Constraints.swift in Sources */,
 				254779EF29A94F0800443390 /* DoggoListFactory.swift in Sources */,
 				254779DA29A91A1D00443390 /* HomeRouter.swift in Sources */,
+				2568916929AA82B700CDA17A /* DoggoSearchFactory.swift in Sources */,
 				254779D229A916B900443390 /* HomeViewController.swift in Sources */,
 				254779DC29A91A3000443390 /* HomeModel.swift in Sources */,
 				254779D629A9175500443390 /* HomePresenter.swift in Sources */,
 				254779FC29A95B1700443390 /* DoggoListPresenter.swift in Sources */,
 				254779FA29A95B0D00443390 /* DoggoListInteractor.swift in Sources */,
+				2568917829AAB8EE00CDA17A /* UIViewController+Extensions.swift in Sources */,
+				2568917429AAAE3800CDA17A /* DoggoSearchTableViewCell.swift in Sources */,
+				2568916D29AA84F600CDA17A /* UITableView+Extensions.swift in Sources */,
+				2568917629AAB06B00CDA17A /* String+Extensions.swift in Sources */,
 				254779D429A9174600443390 /* HomeInteractor.swift in Sources */,
 				254779F829A9548900443390 /* DoggoListModel.swift in Sources */,
 				254779D829A91A0A00443390 /* HomeFactory.swift in Sources */,

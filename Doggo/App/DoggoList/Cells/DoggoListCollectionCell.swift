@@ -37,6 +37,7 @@ class DoggoListCollectionCell: UICollectionViewCell {
     
     fileprivate let nameLabel: UILabel = {
        let label = UILabel()
+        label.textAlignment = .left
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
