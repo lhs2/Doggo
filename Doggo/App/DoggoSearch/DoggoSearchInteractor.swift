@@ -28,6 +28,8 @@ class DoggoSearchInteractor: DoggoSearchInteractorProtocol {
                 }
                 let response = DoggoSearchModel.Response(newDogs: newDoggoList)
                 self?.presenter.presentDoggoList(with: response)
+            } else if !Reachability.shared.isReachable {
+                self?.presenter.presentError(with: .noInternet)
             } else {
                 let error: DoggoSearchModel.ErrorCase = .parseError
                 self?.presenter.presentError(with: error)
