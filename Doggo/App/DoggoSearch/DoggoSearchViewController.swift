@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol DoggoSearchViewControllerProtocol {
+protocol DoggoSearchViewControllerProtocol: UIViewController {
     func displayDoggoList(with viewModel: DoggoSearchModel.ViewModel)
     func displayError(with error: DoggoSearchModel.ErrorCase)
 }
@@ -122,6 +122,11 @@ extension DoggoSearchViewController: UITableViewDelegate, UITableViewDataSource 
         return viewModel.newDogs.count
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let doggo = viewModel.getDog(for: indexPath) {
+            router?.routeToDogDetails(with: doggo)
+        }
+    }
 }
 
 extension DoggoSearchViewController: UISearchBarDelegate {

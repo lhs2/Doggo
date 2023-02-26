@@ -67,6 +67,7 @@ final class DoggoDetailsViewController: UIViewController, DoggoDetailsViewContro
     }
     
     private func setupView() {
+        view.backgroundColor = .white
         view.addSubview(breedNameLabel)
         view.addSubview(breedCategoryLabel)
         view.addSubview(originLabel)
@@ -88,8 +89,10 @@ final class DoggoDetailsViewController: UIViewController, DoggoDetailsViewContro
             view.trailingAnchor.constraint(equalTo: originLabel.trailingAnchor, constant: 8),
             
             temperamentLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 8),
+            temperamentLabel.topAnchor.constraint(equalTo: originLabel.bottomAnchor, constant: 2),
             view.trailingAnchor.constraint(equalTo: temperamentLabel.trailingAnchor, constant: 8),
-            view.bottomAnchor.constraint(greaterThanOrEqualTo: view.safeAreaLayoutGuide.bottomAnchor, constant: 8)
+            
+
         ])
     }
         
@@ -109,20 +112,13 @@ final class DoggoDetailsViewController: UIViewController, DoggoDetailsViewContro
     }
     
     func displayDogInfo(for viewModel: DoggoDetaisModel.ViewModel) {
-        if let breedName = viewModel.data.name {
-            breedNameLabel.attributedText = String.convertToAttributedString(with: "Breed name: ", regular: breedName)
-        }
-        
-        if let breedCategory = viewModel.data.breed_group {
-            breedCategoryLabel.attributedText = String.convertToAttributedString(with: "Breed category: ", regular: breedCategory)
-        }
-        
-        if let origin = viewModel.data.origin {
-            originLabel.attributedText = String.convertToAttributedString(with: "Origin: ", regular: origin)
-        }
-        
-        if let temperament = viewModel.data.origin {
-            originLabel.attributedText = String.convertToAttributedString(with: "Temperament: ", regular: temperament)
-        }
+        let breedName = viewModel.data.name ?? "No Info"
+        let breedCategory = viewModel.data.breed_group ?? "No Info"
+        let origin = viewModel.data.origin ?? "No Info"
+        let temperament = viewModel.data.temperament ?? "No Info"
+        breedNameLabel.attributedText = String.convertToAttributedString(with: "Breed name: ", regular: breedName)
+        breedCategoryLabel.attributedText = String.convertToAttributedString(with: "Breed category: ", regular: breedCategory)
+        originLabel.attributedText = String.convertToAttributedString(with: "Origin: ", regular: origin)
+        temperamentLabel.attributedText = String.convertToAttributedString(with: "Temperament: ", regular: temperament)
     }
 }

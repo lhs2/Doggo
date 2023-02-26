@@ -38,8 +38,11 @@ enum DoggoSearchModel {
         var currentPage: Int = 1
         var newDogs: [Dog]
         
-        func getDog(for indexPath: IndexPath) -> Dog {
-            return newDogs[indexPath.row]
+        func getDog(for indexPath: IndexPath) -> Dog? {
+            if indexPath.row < newDogs.count {
+                return newDogs[indexPath.row]
+            }
+            return nil
         }
     }
     

@@ -17,6 +17,7 @@ enum DoggoListModel {
     struct Dog: Codable {
         let id: Int?
         let name: String?
+        let breed_group: String?
         let temperament: String?
         let origin: String?
         let image: DogImage?

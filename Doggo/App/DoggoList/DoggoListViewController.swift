@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol DoggoListViewControllerProtocol {
+protocol DoggoListViewControllerProtocol: UIViewController {
     func displayList(with viewModel: DoggoListModel.ViewModel)
     func displayError(with error: DoggoListModel.ErrorCase)
 }
@@ -85,6 +85,10 @@ class DoggoListViewController: UIViewController, DoggoListViewControllerProtocol
 extension DoggoListViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print("Collection view at row \(collectionView.tag) selected index path \(indexPath)")
+        guard let cell = collectionView.cellForItem(at: indexPath) as? DoggoListCollectionCell else { return }
+        if let doggo = cell.data {
+            router?.routeToDogDetails(with: doggo)
+        }
     }
     
 //    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -98,7 +102,7 @@ extension DoggoListViewController: UICollectionViewDelegate, UICollectionViewDat
     
     internal func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DoggoListCollectionCell.identifier, for: indexPath) as? DoggoListCollectionCell else { return UICollectionViewCell() }
-        cell.data = viewModel.getDog(for: indexPath)
+        cell.data = viewModel.getDog(for: indexPath) // need to change when grid
         //viewModel.isListMode ? cell.updateConstraint(for: .list) : cell.updateConstraint(for: .grid)
         return cell
     }
